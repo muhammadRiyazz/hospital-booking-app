@@ -14,15 +14,12 @@ class ScreenAppoiments extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Text('Appoiments',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-        ),
-        Listviewdocter(),
-      ],
+    return Scaffold(
+      body: Column(
+        children: const [
+          Listviewdocter(),
+        ],
+      ),
     );
   }
 }
@@ -67,9 +64,7 @@ class Listviewdocter extends StatelessWidget {
                       Expanded(
                         child: Container(
                           decoration: const BoxDecoration(
-                            borderRadius: radius10,
-                            //  color: mgreya,
-                          ),
+                              borderRadius: radius10, color: mgreya),
                           child: Image.asset('lib/assets/docter 1.png'),
                         ),
                       ),

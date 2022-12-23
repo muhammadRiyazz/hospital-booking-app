@@ -38,16 +38,18 @@ class Docters extends StatelessWidget {
                   child: Container(
                     decoration: const BoxDecoration(
                         color: mWhite, borderRadius: radius10),
-                    width: mysize.width * 0.44,
-                    padding: EdgeInsets.all(10),
+                    width: mysize.width * 0.46,
+                    padding: const EdgeInsets.all(5),
                     child: Column(
                       children: [
                         Expanded(
                           child: Container(
+                            width: double.infinity,
                             decoration: const BoxDecoration(
-                                // color: mgreya,
+                                // color: cmain,
                                 borderRadius: radius10),
-                            child: Image.asset('lib/assets/docter 1.png'),
+                            child: Image.asset('lib/assets/dctr.png',
+                                fit: BoxFit.contain),
                           ),
                         ),
                         hsizedbox10,

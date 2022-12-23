@@ -3,6 +3,7 @@ import 'package:appoiment_docter/presantation/Screen%20home/widgets/categoreis.d
 import 'package:appoiment_docter/presantation/Screen%20home/widgets/docters.dart';
 import 'package:appoiment_docter/presantation/Screen%20home/widgets/health_news_part.dart';
 import 'package:appoiment_docter/presantation/Screen%20home/widgets/title_part.dart';
+import 'package:appoiment_docter/presantation/screen%20search/screen_search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -25,25 +26,34 @@ class ScreenHome extends StatelessWidget {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
         ),
-        const Categoreis(),
+        Categoreis(),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             Text(
               'Popular Docters',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
-            Text(
-              'See More',
-              style: TextStyle(
-                color: mBlue,
-                fontSize: 15,
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return ScreenSearch();
+                  },
+                ));
+              },
+              child: Text(
+                'See More',
+                style: TextStyle(
+                  color: mBlue,
+                  fontSize: 15,
+                ),
               ),
             ),
           ],
         ),
         hsizedbox10,
-        const Docters(),
+        Docters(),
       ]),
     );
   }

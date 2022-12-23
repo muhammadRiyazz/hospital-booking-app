@@ -4,9 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
 class Categoreis extends StatelessWidget {
-  const Categoreis({
+  Categoreis({
     Key? key,
   }) : super(key: key);
+
+  List<String> catagoreisimg = [
+    "lib/assets/Vector.png",
+    "lib/assets/Vector b.png",
+    "lib/assets/Vector a.png",
+    "lib/assets/Vector  v.png",
+    "lib/assets/Subtract.png",
+    "lib/assets/Vector b.png",
+    "lib/assets/Vector a.png",
+    "lib/assets/Vector  v.png",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +48,7 @@ class Categoreis extends StatelessWidget {
                       ),
                       height: msize.height * 0.10,
                       width: msize.width * 0.21,
-                      child: Image.asset('lib/assets/Vector a.png'),
+                      child: Image.asset(catagoreisimg[index]),
                     ),
                   ),
                 ),
@@ -58,7 +69,7 @@ class Categoreis extends StatelessWidget {
               width: 0,
             );
           },
-          itemCount: 6),
+          itemCount: catagoreisimg.length),
     );
   }
 }
