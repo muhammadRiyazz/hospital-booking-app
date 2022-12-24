@@ -94,6 +94,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
           SizedBox(
             height: 70,
             child: ListView.builder(
+              //controller: mycontroller,
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: catagoreis.length,
@@ -106,9 +107,8 @@ class _ScreenSearchState extends State<ScreenSearch> {
                         onTap: () {
                           setState(() {
                             current = index;
-                            mycontroller.jumpToPage(index);
+                            mycontroller.jumpToPage(current);
                           });
-                          // mycontroller.jumpToPage(index);
                         },
                         child: SimpleShadow(
                           // opacity: 0.5, // Default: 0.5
@@ -146,7 +146,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                       child: Container(
                         height: 3,
                         width: 30,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           borderRadius: radius15,
                           color: cmain,
                         ),
@@ -158,12 +158,20 @@ class _ScreenSearchState extends State<ScreenSearch> {
             ),
           ),
           Expanded(
-            child: PageView.builder(
+            child: PageView(
               controller: mycontroller,
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Ourpageview();
+
+              onPageChanged: (value) {
+                setState(() {
+                  current = value;
+                  mycontroller.jumpToPage(current);
+                });
               },
+              children: pages,
+              // itemBuilder: (context, index) {
+              //   return const Ourpageview();
+              // },
             ),
           )
         ]),
@@ -171,6 +179,38 @@ class _ScreenSearchState extends State<ScreenSearch> {
     );
   }
 }
+
+List<Widget> pages = [
+  const Ourpageview(),
+  Container(
+    height: 500,
+    width: double.infinity,
+    color: Colors.red,
+  ),
+  const Ourpageview(),
+  Container(
+    height: 500,
+    width: double.infinity,
+    color: Colors.yellow,
+  ),
+  const Ourpageview(),
+  Container(
+    height: 500,
+    width: double.infinity,
+    color: Colors.red,
+  ),
+  const Ourpageview(),
+  Container(
+    height: 500,
+    width: double.infinity,
+    color: Colors.red,
+  ),
+  Container(
+    height: 500,
+    width: double.infinity,
+    color: Colors.red,
+  )
+];
 
 class Ourpageview extends StatelessWidget {
   const Ourpageview({
@@ -180,7 +220,7 @@ class Ourpageview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
         return SimpleShadow(
           opacity: 0.6, // Default: 0.5

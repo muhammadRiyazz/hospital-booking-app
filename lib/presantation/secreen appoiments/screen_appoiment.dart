@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:appoiment_docter/core/colors/colors.dart';
 import 'package:appoiment_docter/core/constands.dart';
 import 'package:appoiment_docter/presantation/screens%20appoimentdetails/screen_details.dart';
@@ -8,16 +10,57 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:simple_shadow/simple_shadow.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 
 class ScreenAppoiments extends StatelessWidget {
-  const ScreenAppoiments({super.key});
+  ScreenAppoiments({super.key});
+
+  PageController myPageController = PageController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: const [
+          hsizedbox15,
+          // SimpleShadow(
+          //   opacity: 0.11, // Default: 0.5
+          //   //color: mgreya, // Default: Black
+          //   offset: const Offset(
+          //     5,
+          //     6,
+          //   ), // Default: Offset(2, 2)
+          //   sigma: 2,
+          //   child: Padding(
+          //     padding: const EdgeInsets.only(bottom: 15),
+          //     child: ToggleSwitch(
+          //       minWidth: double.infinity,
+          //       cornerRadius: 15.0,
+          //       activeBgColors: const [
+          //         [cmain],
+          //         [cmain]
+          //       ],
+          //       activeFgColor: Color.fromARGB(255, 233, 226, 226),
+          //       inactiveBgColor: mWhite,
+          //       inactiveFgColor: Color.fromARGB(255, 0, 0, 0),
+          //       initialLabelIndex: 1,
+          //       totalSwitches: 2,
+          //       labels: const ['Appoiments', 'Requasets'],
+          //       radiusStyle: true,
+          //       onToggle: (index) {
+          //         myPageController.jumpTo;
+          //         log('sdwdd');
+          //       },
+          //     ),
+          //   ),
+          // ),
           Listviewdocter(),
+          // Expanded(
+          //   child: PageView(controller: myPageController, children: [
+
+          //     Listviewdocter(),
+          //   ]),
+          // ),
         ],
       ),
     );
@@ -35,13 +78,13 @@ class Listviewdocter extends StatelessWidget {
       child: ListView.builder(
           itemBuilder: (context, index) {
             return SimpleShadow(
-              opacity: 0.6, // Default: 0.5
-              color: mgreya, // Default: Black
+              opacity: 0.11, // Default: 0.5
+              //color: mgreya, // Default: Black
               offset: const Offset(
                 5,
                 6,
               ), // Default: Offset(2, 2)
-              sigma: 7,
+              sigma: 2,
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 13, vertical: 10),
@@ -49,7 +92,7 @@ class Listviewdocter extends StatelessWidget {
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
-                        return AppoimentDetails();
+                        return const AppoimentDetails();
                       },
                     ));
                   },
@@ -59,12 +102,15 @@ class Listviewdocter extends StatelessWidget {
                       borderRadius: radius15,
                       color: mWhite,
                     ),
-                    height: 155,
+                    height: 150,
                     child: Row(children: [
                       Expanded(
                         child: Container(
                           decoration: const BoxDecoration(
-                              borderRadius: radius10, color: mgreya),
+                            borderRadius: radius10,
+
+                            //color: mgreya
+                          ),
                           child: Image.asset('lib/assets/docter 1.png'),
                         ),
                       ),

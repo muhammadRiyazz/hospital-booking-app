@@ -3,6 +3,8 @@ import 'package:appoiment_docter/core/constands.dart';
 import 'package:appoiment_docter/presantation/screen%20bookig/screen_booking.dart';
 import 'package:flutter/material.dart';
 
+import '../screen patiants info/screen_patiants_info.dart';
+
 class AdoutDocter extends StatelessWidget {
   const AdoutDocter({super.key});
 
@@ -140,11 +142,11 @@ class AdoutDocter extends StatelessWidget {
                           Spacer(),
                           TextButton(
                               onPressed: () {
-                                // Navigator.push(context, MaterialPageRoute(
-                                //   builder: (context) {
-                                //     return ScreenBooking();
-                                //   },
-                                // ));
+                                Navigator.push(context, MaterialPageRoute(
+                                  builder: (context) {
+                                    return ScreenPatiantsInfo();
+                                  },
+                                ));
                               },
                               child: Container(
                                 decoration: const BoxDecoration(

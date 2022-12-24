@@ -46,9 +46,26 @@ class ScreeenSetings extends StatelessWidget {
               Expanded(
                   child: ListView(
                 children: [
-                  const SetingsListtile(
+                  SetingsListtile(
                     mtext: 'Notification',
-                    mwidget: SizedBox(),
+                    mwidget: ToggleSwitch(
+                      minWidth: 65.0,
+                      cornerRadius: 10.0,
+                      activeBgColors: const [
+                        [mBlack],
+                        [mBlack]
+                      ],
+                      activeFgColor: Color.fromARGB(255, 255, 255, 255),
+                      inactiveBgColor: mgreya,
+                      inactiveFgColor: Color.fromARGB(255, 0, 0, 0),
+                      initialLabelIndex: 1,
+                      totalSwitches: 2,
+                      labels: const ['On', 'Off'],
+                      radiusStyle: true,
+                      onToggle: (index) {
+                        //   print('switched to: $index');
+                      },
+                    ),
                   ),
                   SetingsListtile(
                     mtext: 'Theam',
@@ -56,10 +73,10 @@ class ScreeenSetings extends StatelessWidget {
                       minWidth: 65.0,
                       cornerRadius: 10.0,
                       activeBgColors: const [
-                        [Color.fromARGB(255, 0, 0, 0)],
-                        [Color.fromARGB(255, 179, 171, 171)]
+                        [mBlack],
+                        [mBlack]
                       ],
-                      activeFgColor: Color.fromARGB(255, 0, 0, 0),
+                      activeFgColor: Color.fromARGB(255, 255, 255, 255),
                       inactiveBgColor: mgreya,
                       inactiveFgColor: Color.fromARGB(255, 0, 0, 0),
                       initialLabelIndex: 1,
