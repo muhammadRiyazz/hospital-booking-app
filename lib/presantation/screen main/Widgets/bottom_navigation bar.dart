@@ -36,10 +36,10 @@ class BottomNavigatonBar extends StatelessWidget {
                   icon: const Icon(Icons.home),
                   //title: Text("Home"),
                 ),
-                CustomNavigationBarItem(
-                  icon: const Icon(Icons.notifications_active),
-                  //title: Text(""),
-                ),
+                // CustomNavigationBarItem(
+                //   icon: const Icon(Icons.notifications_active),
+                //   //title: Text(""),
+                // ),
                 CustomNavigationBarItem(
                   icon: const Icon(Icons.account_circle),
                   // title: Text("Home"),

@@ -1,6 +1,9 @@
 import 'package:appoiment_docter/core/colors/colors.dart';
 import 'package:appoiment_docter/core/constands.dart';
+import 'package:appoiment_docter/presantation/screen%20notification/screen_notification.dart';
+import 'package:appoiment_docter/presantation/screen%20search/screen_search.dart';
 import 'package:flutter/material.dart';
+import 'package:simple_shadow/simple_shadow.dart';
 
 class TitlePart extends StatelessWidget {
   const TitlePart({
@@ -15,14 +18,17 @@ class TitlePart extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: Container(
-              decoration:
-                  const BoxDecoration(color: mgreya, borderRadius: radius15),
-              padding: const EdgeInsets.all(4),
-              child: const Icon(
-                Icons.account_circle,
-                size: 40,
-                color: Color.fromARGB(255, 98, 96, 96),
+            child: SimpleShadow(
+              opacity: 0.3,
+              child: Container(
+                decoration:
+                    const BoxDecoration(color: mWhite, borderRadius: radius15),
+                padding: const EdgeInsets.all(4),
+                child: const Icon(
+                  Icons.account_circle,
+                  size: 40,
+                  color: Color.fromARGB(255, 98, 96, 96),
+                ),
               ),
             ),
           ),
@@ -43,11 +49,80 @@ class TitlePart extends StatelessWidget {
               )
             ],
           ),
-          Expanded(
-            child: Container(
-                // color: Colors.amber,
-                ),
-          ),
+          const Spacer(),
+          NotificationButton(),
+          wsizedbox10,
+          SearchButton(),
         ]);
+  }
+}
+
+class NotificationButton extends StatelessWidget {
+  const NotificationButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SimpleShadow(
+      child: InkWell(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return ScreenNotification();
+            },
+          ));
+        },
+        child: Container(
+          decoration: const BoxDecoration(
+            borderRadius: radius10,
+            color: mgreyb,
+          ),
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.notifications_active_outlined,
+              size: 30,
+              color: cmain,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SearchButton extends StatelessWidget {
+  const SearchButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SimpleShadow(
+      child: InkWell(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return ScreenSearch();
+            },
+          ));
+        },
+        child: Container(
+          decoration: const BoxDecoration(
+            borderRadius: radius10,
+            color: mgreyb,
+          ),
+          child: const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.search,
+              size: 30,
+              color: cmain,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
