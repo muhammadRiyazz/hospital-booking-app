@@ -3,6 +3,8 @@ import 'package:appoiment_docter/presantation/screen%20firstlog/screen_firstlog.
 import 'package:appoiment_docter/presantation/screen%20main/screen_main.dart';
 import 'package:flutter/material.dart';
 
+import 'presantation/screen threepart/screen_scnd_splash.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ScreenFirst(),
+      home: ScreenScndSplash(),
     );
   }
 }
