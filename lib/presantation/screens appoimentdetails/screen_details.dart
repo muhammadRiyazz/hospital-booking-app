@@ -1,12 +1,7 @@
-import 'dart:ui';
-
 import 'package:appoiment_docter/core/colors/colors.dart';
 import 'package:appoiment_docter/core/constands.dart';
 import 'package:appoiment_docter/presantation/screens%20appoimentdetails/widgets/docter_part.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:simple_shadow/simple_shadow.dart';
 
 class AppoimentDetails extends StatelessWidget {
   const AppoimentDetails({super.key});

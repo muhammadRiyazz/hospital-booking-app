@@ -1,6 +1,7 @@
 import 'package:appoiment_docter/core/colors/colors.dart';
 import 'package:appoiment_docter/core/constands.dart';
 import 'package:appoiment_docter/presantation/screen%20bookig/screen_booking.dart';
+import 'package:appoiment_docter/presantation/screen%20time%20and%20date/screen_time_date.dart';
 import 'package:flutter/material.dart';
 
 import '../screen patiants info/screen_patiants_info.dart';
@@ -144,7 +145,7 @@ class AdoutDocter extends StatelessWidget {
                               onPressed: () {
                                 Navigator.push(context, MaterialPageRoute(
                                   builder: (context) {
-                                    return ScreenPatiantsInfo();
+                                    return ScreenDateTime();
                                   },
                                 ));
                               },
