@@ -1,9 +1,5 @@
-import 'package:appoiment_docter/presantation/Screen%20home/screen_home.dart';
-import 'package:appoiment_docter/presantation/screen%20firstlog/screen_firstlog.dart';
-import 'package:appoiment_docter/presantation/screen%20main/screen_main.dart';
+import 'package:appoiment_docter/presantation/User%20pages/screen%20threepart/screen_scnd_splash.dart';
 import 'package:flutter/material.dart';
-
-import 'presantation/screen threepart/screen_scnd_splash.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
