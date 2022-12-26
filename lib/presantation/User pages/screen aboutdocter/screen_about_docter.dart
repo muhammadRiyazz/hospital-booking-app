@@ -106,7 +106,7 @@ class AdoutDocter extends StatelessWidget {
                                   fristtxt: '100 +',
                                   scndtxt: 'Patiants',
                                   icon: Icon(
-                                    Icons.account_circle_outlined,
+                                    Icons.supervisor_account,
                                     color: mGreyc,
                                     size: 33,
                                   ),
@@ -115,7 +115,7 @@ class AdoutDocter extends StatelessWidget {
                                   fristtxt: '2 Year',
                                   scndtxt: 'Experians',
                                   icon: Icon(
-                                    Icons.account_circle_outlined,
+                                    Icons.format_list_numbered,
                                     color: mGreyc,
                                     size: 33,
                                   ),
@@ -135,8 +135,9 @@ class AdoutDocter extends StatelessWidget {
                           const Padding(
                             padding: EdgeInsets.symmetric(horizontal: 8),
                             child: Text(
-                              'Dr jhon top most cardiologist  specialist in aster  hospital at kochi  he achived several awards for his wonderful condribution medical field he is available for privet consaltation',
+                              'Dr jhon top most cardiologist  specialist in aster  hospital at kochi  he achived several awards for his wonderful condribution medical field he is available for privet consaltation  he achived several awards for his wonderful condribution medical field he is available  he achived several awards for his wonderful condribution medical field  ',
                               style: TextStyle(color: mGreyc),
+                              textAlign: TextAlign.center,
                             ),
                           ),
                           Spacer(),

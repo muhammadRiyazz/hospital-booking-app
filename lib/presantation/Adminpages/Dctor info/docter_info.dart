@@ -103,7 +103,7 @@ class InfoDocter extends StatelessWidget {
                               children: const [
                                 ScndpartDocter(
                                   fristtxt: '100 +',
-                                  scndtxt: 'Patiants',
+                                  scndtxt: 'Patients',
                                   icon: Icon(
                                     Icons.account_circle_outlined,
                                     color: mGreyc,
@@ -125,7 +125,7 @@ class InfoDocter extends StatelessWidget {
                           const Center(
                             child: Text(
                               textAlign: TextAlign.center,
-                              'About Docter',
+                              'About Doctor',
                               style: TextStyle(
                                   fontSize: 17, fontWeight: FontWeight.w500),
                             ),

@@ -131,7 +131,7 @@ class PageviewFirst extends StatelessWidget {
         ),
         hsizedbox20,
         const Text(
-          'Manage appoinments with your docter\nand ger accurate information ',
+          'Manage appoinments with your doctor\nand get accurate information ',
           style: TextStyle(
               fontSize: 16, fontWeight: FontWeight.w500, color: mGreyc),
           textAlign: TextAlign.center,

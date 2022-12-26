@@ -121,18 +121,18 @@ class ScreenLogin extends StatelessWidget {
             hsizedbox10,
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(19.0),
                 decoration: BoxDecoration(
                   border: Border.all(color: cmain),
                   borderRadius: radius10,
                   color: mWhite,
                 ),
                 height: 70,
-                child: Image.asset('lib/assets/gpay.png'),
+                child: Image.asset('lib/assets/facebook-color-icon.png'),
               ),
               wsizedbox20,
               Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   border: Border.all(color: cmain),
                   borderRadius: radius10,

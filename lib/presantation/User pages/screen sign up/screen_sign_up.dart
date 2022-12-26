@@ -111,8 +111,8 @@ class ScreenSignUp extends StatelessWidget {
                       border: Border.all(color: cmain), borderRadius: radius10),
                   height: 70,
                   child: Padding(
-                    padding: const EdgeInsets.all(6.0),
-                    child: Image.asset('lib/assets/gpay.png'),
+                    padding: const EdgeInsets.all(19.0),
+                    child: Image.asset('lib/assets/facebook-color-icon.png'),
                   ),
                 ),
                 wsizedbox20,
@@ -121,7 +121,7 @@ class ScreenSignUp extends StatelessWidget {
                       border: Border.all(color: cmain), borderRadius: radius10),
                   height: 70,
                   child: Padding(
-                    padding: const EdgeInsets.all(6.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Image.asset('lib/assets/gpay.png'),
                   ),
                 ),

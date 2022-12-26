@@ -4,7 +4,6 @@ import 'package:appoiment_docter/core/constands.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:time_range/time_range.dart';
 
 import '../../../core/colors/colors.dart';
 import '../screen patiants info/screen_patiants_info.dart';

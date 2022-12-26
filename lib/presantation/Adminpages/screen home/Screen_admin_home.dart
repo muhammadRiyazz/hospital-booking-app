@@ -8,6 +8,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
 import '../../../core/constands.dart';
+import '../popular doctors/populardoctor.dart';
 
 class AdminHome extends StatelessWidget {
   const AdminHome({super.key});
@@ -18,6 +19,13 @@ class AdminHome extends StatelessWidget {
       padding: EdgeInsets.all(15),
       child: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              'Doctors',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+          ),
           Expanded(
             child: ListView.builder(
                 itemBuilder: (context, index) {
@@ -46,7 +54,7 @@ class AdminHome extends StatelessWidget {
                             borderRadius: radius15,
                             color: mWhite,
                           ),
-                          height: 150,
+                          height: 110,
                           child: Row(children: [
                             Expanded(
                               child: Container(
@@ -147,11 +155,32 @@ class AdminHome extends StatelessWidget {
             child: Container(
               decoration:
                   const BoxDecoration(borderRadius: radius10, color: cmain),
-              width: double.infinity,
+              // width: double.infinity,
               height: 50,
               child: const Center(
                 child: Text(
                   'Add Doctor',
+                  style: TextStyle(color: mWhite),
+                ),
+              ),
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return Populardoctor();
+                },
+              ));
+            },
+            child: Container(
+              decoration:
+                  const BoxDecoration(borderRadius: radius10, color: cmain),
+              width: double.infinity,
+              height: 50,
+              child: const Center(
+                child: Text(
+                  'Go pupular doctors page',
                   style: TextStyle(color: mWhite),
                 ),
               ),

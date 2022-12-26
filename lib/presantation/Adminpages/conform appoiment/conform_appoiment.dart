@@ -15,8 +15,8 @@ class ConformAppoinment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
+        const Padding(
+          padding: EdgeInsets.all(8.0),
           child: Text(
             'Conform Appoinments',
             style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
@@ -38,11 +38,11 @@ class ConformAppoinment extends StatelessWidget {
                           horizontal: 13, vertical: 10),
                       child: InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return const AdmnAppoimentInfo();
-                            },
-                          ));
+                          // Navigator.push(context, MaterialPageRoute(
+                          //   builder: (context) {
+                          //     return const AdmnAppoimentInfo();
+                          //   },
+                          // ));
                         },
                         child: Container(
                           padding: const EdgeInsets.all(7),
@@ -70,7 +70,7 @@ class ConformAppoinment extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: const [
                                       Text(
-                                        'Docter',
+                                        'Doctor',
                                         style: TextStyle(
                                             fontSize: 15, color: mgreyb),
                                       ),

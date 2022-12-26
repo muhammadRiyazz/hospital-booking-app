@@ -16,7 +16,7 @@ class AdmnAppoimentInfo extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListTile(
-              title: const Text('Appoiment'),
+              title: const Text('Appoinment'),
               leading: InkWell(
                 onTap: () {
                   Navigator.pop(context);
@@ -84,7 +84,7 @@ class AdmnAppoimentInfo extends StatelessWidget {
                                 hsizedbox40,
                                 // hsizedbox20,
                                 AdnmScndPart(
-                                  mainhead: 'Patiant Information',
+                                  mainhead: 'Patient Information',
                                   firsttxt: 'Name  :  Muhammad Riyaz',
                                   scndtxt: 'Disease  :  Stomak Pain',
                                   icon: Icon(Icons.account_circle_outlined,
@@ -245,7 +245,7 @@ class AdmnDocterPart extends StatelessWidget {
             wsizedbox20,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: const [
                 hsizedbox15,
                 Text('Dr.Jhony MBBS',
                     style:

@@ -19,15 +19,15 @@ class ScreenSearch extends StatefulWidget {
 
 class _ScreenSearchState extends State<ScreenSearch> {
   List<String> catagoreis = [
-    "Cargiolagy",
+    "Cardiolagy",
     "Dhandhist",
-    "Cargiolagy",
+    "Cardiolagy",
     "Dhandhist",
-    "Cargiolagy",
+    "Cardiolagy",
     "Dhandhist",
-    "Cargiolagy",
+    "Cardiolagy",
     "Dhandhist",
-    "Cargiolagy",
+    "Cardiolagy",
   ];
 
   int current = 0;

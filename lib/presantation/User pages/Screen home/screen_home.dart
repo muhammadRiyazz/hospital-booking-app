@@ -31,8 +31,8 @@ class ScreenHome extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'Popular Docters',
+            const Text(
+              'Popular Doctors',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
             InkWell(
@@ -43,7 +43,7 @@ class ScreenHome extends StatelessWidget {
                   },
                 ));
               },
-              child: Text(
+              child: const Text(
                 'See More',
                 style: TextStyle(
                   color: mBlue,
@@ -54,7 +54,7 @@ class ScreenHome extends StatelessWidget {
           ],
         ),
         hsizedbox10,
-        Docters(),
+        const Docters(),
       ]),
     );
   }

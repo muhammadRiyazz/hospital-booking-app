@@ -45,7 +45,7 @@ class TitlePart extends StatelessWidget {
                 ),
               ),
               Text(
-                "Find Your Docter",
+                "Find Your Doctor",
                 style: TextStyle(fontSize: 15, color: mGrey),
               )
             ],

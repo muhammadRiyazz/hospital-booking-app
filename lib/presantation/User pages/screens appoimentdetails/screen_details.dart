@@ -1,5 +1,6 @@
 import 'package:appoiment_docter/core/colors/colors.dart';
 import 'package:appoiment_docter/core/constands.dart';
+import 'package:appoiment_docter/presantation/User%20pages/screen%20time%20and%20date/screen_time_date.dart';
 import 'package:appoiment_docter/presantation/User%20pages/screens%20appoimentdetails/widgets/docter_part.dart';
 import 'package:flutter/material.dart';
 
@@ -104,7 +105,13 @@ class AppoimentDetails extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return ScreenDateTime();
+                              },
+                            ));
+                          },
                           child: Container(
                             decoration: const BoxDecoration(
                                 borderRadius: radius10, color: cmain),
