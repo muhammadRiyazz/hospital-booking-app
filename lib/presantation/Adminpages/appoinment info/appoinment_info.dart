@@ -107,7 +107,9 @@ class AdmnAppoimentInfo extends StatelessWidget {
                           children: [
                             Expanded(
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
                                 child: Container(
                                   decoration: const BoxDecoration(
                                       borderRadius: radius10, color: cmain),

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import '../conform appoiment/conform_appoiment.dart';
 import '../screen appoiments/Screen_Admin_appoinment.dart';
 import '../screen home/Screen_admin_home.dart';
 import 'widgets/navogationbar.dart';
@@ -16,6 +17,7 @@ class adminScreenMain extends StatelessWidget {
   final _pages = [
     AdminHome(),
     AdminAppoinment(),
+    ConformAppoinment(),
   ];
 
   @override

@@ -32,6 +32,9 @@ class AdminBottomNavigatonBar extends StatelessWidget {
                 CustomNavigationBarItem(
                   icon: const Icon(Icons.menu_book_rounded),
                 ),
+                CustomNavigationBarItem(
+                  icon: const Icon(Icons.menu),
+                ),
               ]);
         },
       ),
