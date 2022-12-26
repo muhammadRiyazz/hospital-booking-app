@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../Screen setings/screen_setings.dart';
 
 class ScreenProfile extends StatelessWidget {
-  const ScreenProfile({super.key});
+  ScreenProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -59,27 +59,57 @@ class ScreenProfile extends StatelessWidget {
               children: const [
                 Mainlistile(
                   mytext: 'Profile',
+                  icon: Icon(
+                    Icons.account_circle_rounded,
+                    size: 35,
+                    color: cmain,
+                  ),
                   navigation: ScreenUserprofile(),
                 ),
                 Mainlistile(
                   mytext: 'About',
+                  icon: Icon(
+                    Icons.attribution_outlined,
+                    size: 35,
+                    color: cmain,
+                  ),
                   navigation: ScreeenSetings(),
                 ),
                 Mainlistile(
                   mytext: 'Share',
                   navigation: ScreeenSetings(),
+                  icon: Icon(
+                    Icons.share_outlined,
+                    size: 35,
+                    color: cmain,
+                  ),
                 ),
                 Mainlistile(
                   mytext: 'Help',
                   navigation: ScreeenSetings(),
+                  icon: Icon(
+                    Icons.help_outline_sharp,
+                    size: 35,
+                    color: cmain,
+                  ),
                 ),
                 Mainlistile(
                   mytext: 'Setings',
                   navigation: ScreeenSetings(),
+                  icon: Icon(
+                    Icons.settings,
+                    size: 35,
+                    color: cmain,
+                  ),
                 ),
                 Mainlistile(
                   mytext: 'Log Out',
                   navigation: ScreeenSetings(),
+                  icon: Icon(
+                    Icons.logout_outlined,
+                    size: 35,
+                    color: cmain,
+                  ),
                 ),
               ],
             ),
@@ -94,10 +124,12 @@ class Mainlistile extends StatelessWidget {
   const Mainlistile({
     required this.mytext,
     required this.navigation,
+    required this.icon,
     Key? key,
   }) : super(key: key);
   final String mytext;
   final navigation;
+  final Widget icon;
 
   @override
   Widget build(BuildContext context) {
@@ -122,14 +154,7 @@ class Mainlistile extends StatelessWidget {
             child: const Icon(Icons.navigate_next_rounded),
           ),
         ),
-        leading: Container(
-          decoration: const BoxDecoration(
-            borderRadius: radius10,
-            color: mgreya,
-          ),
-          height: 50,
-          width: 50,
-        ),
+        leading: icon,
         title: Text(
           mytext,
           style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),

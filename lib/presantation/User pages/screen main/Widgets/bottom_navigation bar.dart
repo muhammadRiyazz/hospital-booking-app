@@ -25,24 +25,15 @@ class BottomNavigatonBar extends StatelessWidget {
               strokeColor: const Color(0x30040307),
               unSelectedColor: Color(0xffacacac),
               backgroundColor: Colors.white,
-
-              // borderRadius: BorderRadius.all(Radius.circular()),
               items: [
                 CustomNavigationBarItem(
                   icon: const Icon(Icons.home),
-                  //  title: Text("Home"),
                 ),
                 CustomNavigationBarItem(
                   icon: const Icon(Icons.menu_book_rounded),
-                  //title: Text("Home"),
                 ),
-                // CustomNavigationBarItem(
-                //   icon: const Icon(Icons.notifications_active),
-                //   //title: Text(""),
-                // ),
                 CustomNavigationBarItem(
                   icon: const Icon(Icons.account_circle),
-                  // title: Text("Home"),
                 ),
               ]);
         },

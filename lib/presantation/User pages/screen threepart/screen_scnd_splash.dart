@@ -120,8 +120,8 @@ class PageviewFirst extends StatelessWidget {
       children: [
         Container(
           height: mysize.height * 0.5,
-          color: cmain,
-          // child: Image.asset(''),
+          // color: cmain,
+          child: Image.asset('lib/assets/Group 36074.png'),
         ),
         hsizedbox15,
         const Text(
@@ -155,7 +155,8 @@ class PageviewScnd extends StatelessWidget {
       children: [
         Container(
           height: mysize.height * 0.5,
-          color: mGrey,
+          //  color: mGrey,
+          child: Image.asset('lib/assets/Group 36074.png'),
         ),
         hsizedbox15,
         const Text(
@@ -189,7 +190,8 @@ class Pageviewlast extends StatelessWidget {
       children: [
         Container(
           height: mysize.height * 0.5,
-          color: mBlue,
+          // color: mBlue,
+          child: Image.asset('lib/assets/Group 36074.png'),
         ),
         hsizedbox15,
         const Text(

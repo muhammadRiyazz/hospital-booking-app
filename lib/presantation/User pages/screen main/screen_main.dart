@@ -14,7 +14,7 @@ class ScreenMain extends StatelessWidget {
   final _pages = [
     const ScreenHome(),
     ScreenAppoiments(),
-    const ScreenProfile(),
+    ScreenProfile(),
   ];
 
   @override

@@ -44,6 +44,7 @@ class ScreenFirst extends StatelessWidget {
                 ));
               },
             ),
+            hsizedbox10,
             bottun(
               mytext: 'Sign In',
               navigation: () {
@@ -80,7 +81,7 @@ class bottun extends StatelessWidget {
         child: Container(
           decoration: const BoxDecoration(borderRadius: radius10, color: cmain),
           width: double.infinity,
-          height: 45,
+          height: 55,
           child: Center(
               child: Text(
             mytext,

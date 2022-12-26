@@ -47,6 +47,11 @@ class ScreeenSetings extends StatelessWidget {
                   child: ListView(
                 children: [
                   SetingsListtile(
+                    icon: Icon(
+                      Icons.notifications_active,
+                      size: 30,
+                      color: cmain,
+                    ),
                     mtext: 'Notification',
                     mwidget: ToggleSwitch(
                       minWidth: 65.0,
@@ -68,6 +73,11 @@ class ScreeenSetings extends StatelessWidget {
                     ),
                   ),
                   SetingsListtile(
+                    icon: Icon(
+                      Icons.color_lens_rounded,
+                      size: 30,
+                      color: cmain,
+                    ),
                     mtext: 'Theam',
                     mwidget: ToggleSwitch(
                       minWidth: 65.0,
@@ -89,6 +99,11 @@ class ScreeenSetings extends StatelessWidget {
                     ),
                   ),
                   SetingsListtile(
+                    icon: const Icon(
+                      Icons.privacy_tip_sharp,
+                      size: 30,
+                      color: cmain,
+                    ),
                     mwidget: Container(
                       decoration: const BoxDecoration(
                         borderRadius: radius10,
@@ -101,6 +116,11 @@ class ScreeenSetings extends StatelessWidget {
                     mtext: 'Privecy And Policy',
                   ),
                   SetingsListtile(
+                    icon: const Icon(
+                      Icons.receipt_rounded,
+                      size: 30,
+                      color: cmain,
+                    ),
                     mwidget: Container(
                       decoration: const BoxDecoration(
                         borderRadius: radius10,
@@ -113,6 +133,11 @@ class ScreeenSetings extends StatelessWidget {
                     mtext: 'Terms And Counditians',
                   ),
                   SetingsListtile(
+                    icon: Icon(
+                      Icons.warning_rounded,
+                      size: 30,
+                      color: cmain,
+                    ),
                     mwidget: Container(
                       decoration: const BoxDecoration(
                         borderRadius: radius10,
@@ -139,20 +164,22 @@ class SetingsListtile extends StatelessWidget {
   const SetingsListtile({
     required this.mtext,
     required this.mwidget,
+    required this.icon,
     Key? key,
   }) : super(key: key);
   final String mtext;
   final Widget mwidget;
-
+  final Widget icon;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: ListTile(
           leading: Container(
+            child: icon,
             decoration: const BoxDecoration(
               borderRadius: radius10,
-              color: mgreya,
+              // color: mgreya,
             ),
             height: 50,
             width: 50,

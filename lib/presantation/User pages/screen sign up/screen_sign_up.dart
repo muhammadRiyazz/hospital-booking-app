@@ -150,7 +150,7 @@ class Signtextfield extends StatelessWidget {
           prefixIcon: icon,
           contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 14),
           focusColor: mBlack,
-          border: OutlineInputBorder(borderRadius: radius15),
+          border: const OutlineInputBorder(borderRadius: radius15),
           hintText: hindtxt,
         ),
       ),

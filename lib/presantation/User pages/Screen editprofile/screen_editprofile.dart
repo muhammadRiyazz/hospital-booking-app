@@ -148,7 +148,7 @@ class EditDeteails extends StatelessWidget {
     return ListTile(
         title: Text(
           firsttext,
-          style: TextStyle(fontSize: 15, color: mGrey),
+          style: const TextStyle(fontSize: 15, color: mGrey),
         ),
         subtitle: TextFormField(
           decoration: InputDecoration(hintText: ''),

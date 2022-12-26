@@ -46,13 +46,13 @@ class ScreenLogin extends StatelessWidget {
                 hindtxt: 'Password', icon: Icon(Icons.lock_outline_rounded)),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 2, horizontal: 7),
-              child: Text(
-                'Forget password',
-                style: TextStyle(
-                  color: mBlue,
-                  fontSize: 15,
-                ),
-              ),
+              // child: Text(
+              //   'Forget password',
+              //   style: TextStyle(
+              //     color: mBlue,
+              //     fontSize: 15,
+              //   ),
+              // ),
             ),
             const Spacer(flex: 1),
             TextButton(
