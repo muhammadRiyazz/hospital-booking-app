@@ -1,5 +1,8 @@
 import 'package:appoiment_docter/core/colors/colors.dart';
 import 'package:appoiment_docter/core/constands.dart';
+import 'package:appoiment_docter/presantation/Adminpages/screen%20main/widgets/navogationbar.dart';
+import 'package:appoiment_docter/presantation/User%20pages/screen%20firstlog/screen_firstlog.dart';
+import 'package:appoiment_docter/presantation/User%20pages/screen%20main/screen_main.dart';
 import 'package:appoiment_docter/presantation/User%20pages/screen%20userprofile/sceen_user_profile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -56,45 +59,56 @@ class ScreenProfile extends StatelessWidget {
           Expanded(
             child: ListView(
               children: [
-                const Mainlistile(
+                Mainlistile(
                   mytext: 'Profile',
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.account_circle_rounded,
                     size: 35,
                     color: cmain,
                   ),
-                  navigation: ScreenUserprofile(),
+                  navigation: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return ScreenUserprofile();
+                      },
+                    ));
+                  },
                 ),
-                const Mainlistile(
-                  mytext: 'About',
-                  icon: Icon(
-                    Icons.attribution_outlined,
-                    size: 35,
-                    color: cmain,
-                  ),
-                  navigation: ScreeenSetings(),
-                ),
-                const Mainlistile(
+                Mainlistile(
+                    mytext: 'About',
+                    icon: Icon(
+                      Icons.attribution_outlined,
+                      size: 35,
+                      color: cmain,
+                    ),
+                    navigation: () {}),
+                Mainlistile(
                   mytext: 'Share',
-                  navigation: ScreeenSetings(),
+                  navigation: () {},
                   icon: Icon(
                     Icons.share_outlined,
                     size: 35,
                     color: cmain,
                   ),
                 ),
-                const Mainlistile(
+                Mainlistile(
                   mytext: 'Help',
-                  navigation: ScreeenSetings(),
+                  navigation: () {},
                   icon: Icon(
                     Icons.help_outline_sharp,
                     size: 35,
                     color: cmain,
                   ),
                 ),
-                const Mainlistile(
+                Mainlistile(
                   mytext: 'Setings',
-                  navigation: ScreeenSetings(),
+                  navigation: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return ScreeenSetings();
+                      },
+                    ));
+                  },
                   icon: Icon(
                     Icons.settings,
                     size: 35,
@@ -103,7 +117,15 @@ class ScreenProfile extends StatelessWidget {
                 ),
                 Mainlistile(
                   mytext: 'Log Out',
-                  navigation: FirebaseAuth.instance.signOut(),
+                  navigation: () async {
+                    await FirebaseAuth.instance.signOut();
+                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                      builder: (context) {
+                        return AuthScreen();
+                      },
+                    ), (route) => false);
+                  },
+                  //  navigation: ScreeenSetings(),
                   icon: const Icon(
                     Icons.logout_outlined,
                     size: 35,
@@ -136,13 +158,7 @@ class Mainlistile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: ListTile(
         trailing: InkWell(
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (context) {
-                return navigation;
-              },
-            ));
-          },
+          onTap: navigation,
           child: Container(
             decoration: const BoxDecoration(
               borderRadius: radius10,

@@ -1,9 +1,8 @@
 import 'dart:developer';
-
 import 'package:appoiment_docter/presantation/User%20pages/screen%20firstlog/screen_firstlog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:lottie/lottie.dart';
 import '../../../core/colors/colors.dart';
 import '../../../core/constands.dart';
 import '../screen main/screen_main.dart';
@@ -84,8 +83,6 @@ class ScreenLogin extends StatelessWidget {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Invalid password!';
-                            } else if (value.length < 5) {
-                              return 'Password must has 6 characters';
                             } else {
                               return null;
                             }
@@ -132,7 +129,7 @@ class ScreenLogin extends StatelessWidget {
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(
                                 builder: (context) {
-                                  return const ScreenSignUp();
+                                  return ScreenSignUp();
                                 },
                               ));
                             },
@@ -205,20 +202,32 @@ class ScreenLogin extends StatelessWidget {
   }
 
   Future signin(context) async {
-    log("message message message");
-    await FirebaseAuth.instance
-        .signInWithEmailAndPassword(
-      email: emailcontroller.text.trim(),
-      password: passwordcontroller.text.trim(),
-    )
-        .then((value) {
-      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-        builder: (context) {
-          return const AuthScreen();
-        },
-      ), (route) => false);
-    });
-
-    log("message message message");
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) {
+        return Center(
+          child: Lottie.network(
+            "https://assets1.lottiefiles.com/packages/lf20_t9gkkhz4.json",
+          ),
+        );
+      },
+    );
+    try {
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+        email: emailcontroller.text.trim(),
+        password: passwordcontroller.text.trim(),
+      )
+          .then((value) {
+        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+          builder: (context) {
+            return const AuthScreen();
+          },
+        ), (route) => false);
+      });
+    } on FirebaseAuthException catch (e) {
+      log(e.toString());
+    }
   }
 }

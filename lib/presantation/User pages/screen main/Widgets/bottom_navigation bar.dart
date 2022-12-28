@@ -6,11 +6,15 @@ import 'package:flutter/src/widgets/framework.dart';
 ValueNotifier<int> IndexValueNotifier = ValueNotifier(0);
 
 class BottomNavigatonBar extends StatelessWidget {
-  BottomNavigatonBar({super.key});
+  BottomNavigatonBar({
+    super.key,
+  });
+  // final int index;
   @override
   Widget build(BuildContext context) {
+    IndexValueNotifier.value = 0;
     return Padding(
-      padding: EdgeInsets.only(bottom: 20, left: 12, right: 12),
+      padding: const EdgeInsets.only(bottom: 20, left: 12, right: 12),
       child: ValueListenableBuilder(
         valueListenable: IndexValueNotifier,
         builder: (context, newindex, child) {
@@ -19,11 +23,11 @@ class BottomNavigatonBar extends StatelessWidget {
               onTap: (index) {
                 IndexValueNotifier.value = index;
               },
-              borderRadius: Radius.circular(20.0),
+              borderRadius: const Radius.circular(20.0),
               iconSize: 25,
-              selectedColor: Color.fromARGB(255, 46, 44, 53),
+              selectedColor: const Color.fromARGB(255, 46, 44, 53),
               strokeColor: const Color(0x30040307),
-              unSelectedColor: Color(0xffacacac),
+              unSelectedColor: const Color(0xffacacac),
               backgroundColor: Colors.white,
               items: [
                 CustomNavigationBarItem(
