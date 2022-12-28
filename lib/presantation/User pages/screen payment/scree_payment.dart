@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:lottie/lottie.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
 import '../../../core/colors/colors.dart';
@@ -125,8 +126,11 @@ class ScreenPaymnt extends StatelessWidget {
                             borderRadius: radius20,
                             color: mWhite,
                           ),
-                          height: 400,
-                          width: 300,
+                          height: 700,
+                          width: 350,
+                          child: Lottie.network(
+                              "https://assets10.lottiefiles.com/packages/lf20_mzgntrue.json",
+                              repeat: false),
                         ),
                       ],
                     );

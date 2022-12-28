@@ -1,11 +1,27 @@
 import 'package:appoiment_docter/core/colors/colors.dart';
 import 'package:appoiment_docter/presantation/User%20pages/screen%20login/screen_login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import '../../../core/constands.dart';
+import '../screen main/screen_main.dart';
 import '../screen sign up/screen_sign_up.dart';
+
+class AuthScreen extends StatelessWidget {
+  const AuthScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return ScreenMain();
+          } else {
+            return const ScreenFirst();
+          }
+        });
+  }
+}
 
 class ScreenFirst extends StatelessWidget {
   const ScreenFirst({super.key});
@@ -19,12 +35,12 @@ class ScreenFirst extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Spacer(
+            const Spacer(
               flex: 2,
             ),
             Container(
               //color: mGrey,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               height: mysize.height * 0.5,
               child: Center(
                 child: Image.asset(
@@ -33,8 +49,8 @@ class ScreenFirst extends StatelessWidget {
                 ),
               ),
             ),
-            Spacer(flex: 1),
-            bottun(
+            const Spacer(flex: 1),
+            Bottun(
               mytext: 'Create Account',
               navigation: () {
                 Navigator.push(context, MaterialPageRoute(
@@ -45,7 +61,7 @@ class ScreenFirst extends StatelessWidget {
               },
             ),
             hsizedbox10,
-            bottun(
+            Bottun(
               mytext: 'Sign In',
               navigation: () {
                 Navigator.push(
@@ -58,7 +74,7 @@ class ScreenFirst extends StatelessWidget {
                 );
               },
             ),
-            Spacer(flex: 1),
+            const Spacer(flex: 1),
           ],
         ),
       )),
@@ -66,12 +82,9 @@ class ScreenFirst extends StatelessWidget {
   }
 }
 
-class bottun extends StatelessWidget {
-  const bottun({
-    Key? key,
-    required this.mytext,
-    required this.navigation,
-  }) : super(key: key);
+class Bottun extends StatelessWidget {
+  const Bottun({Key? key, required this.mytext, required this.navigation, ad})
+      : super(key: key);
   final String mytext;
   final navigation;
   @override
@@ -85,7 +98,7 @@ class bottun extends StatelessWidget {
           child: Center(
               child: Text(
             mytext,
-            style: TextStyle(color: mWhite),
+            style: const TextStyle(color: mWhite),
           )),
         ));
   }

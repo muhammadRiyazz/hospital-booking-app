@@ -1,5 +1,8 @@
 import 'package:appoiment_docter/core/colors/colors.dart';
 import 'package:appoiment_docter/core/constands.dart';
+import 'package:appoiment_docter/presantation/User%20pages/screen%20threepart/pages/firstpage.dart';
+import 'package:appoiment_docter/presantation/User%20pages/screen%20threepart/pages/scndpage.dart';
+import 'package:appoiment_docter/presantation/User%20pages/screen%20threepart/pages/therdpage.dart';
 
 import 'package:flutter/material.dart';
 
@@ -70,9 +73,9 @@ class _ScreenScndSplashState extends State<ScreenScndSplash> {
             TextButton(
                 onPressed: () {
                   currentIndex == 2
-                      ? Navigator.push(context, MaterialPageRoute(
+                      ? Navigator.pushReplacement(context, MaterialPageRoute(
                           builder: (context) {
-                            return ScreenFirst();
+                            return const AuthScreen();
                           },
                         ))
                       : setState(() {
@@ -89,11 +92,11 @@ class _ScreenScndSplashState extends State<ScreenScndSplash> {
                   height: 50,
                   child: Center(
                       child: currentIndex == 2
-                          ? Text(
+                          ? const Text(
                               'Get Start',
                               style: TextStyle(color: mWhite),
                             )
-                          : Text(
+                          : const Text(
                               'Next',
                               style: TextStyle(color: mWhite),
                             )),
@@ -102,111 +105,6 @@ class _ScreenScndSplashState extends State<ScreenScndSplash> {
           ],
         ),
       )),
-    );
-  }
-}
-
-class PageviewFirst extends StatelessWidget {
-  const PageviewFirst({
-    Key? key,
-    required this.mysize,
-  }) : super(key: key);
-
-  final Size mysize;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: mysize.height * 0.5,
-          // color: cmain,
-          child: Image.asset('lib/assets/Group 36074.png'),
-        ),
-        hsizedbox15,
-        const Text(
-          'Get Follow up your\nAppoinment',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
-        ),
-        hsizedbox20,
-        const Text(
-          'Manage appoinments with your doctor\nand get accurate information ',
-          style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.w500, color: mGreyc),
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
-  }
-}
-
-class PageviewScnd extends StatelessWidget {
-  const PageviewScnd({
-    Key? key,
-    required this.mysize,
-  }) : super(key: key);
-
-  final Size mysize;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: mysize.height * 0.5,
-          //  color: mGrey,
-          child: Image.asset('lib/assets/Group 36074.png'),
-        ),
-        hsizedbox15,
-        const Text(
-          'Book the best doctor\nin your ASTER',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
-        ),
-        hsizedbox20,
-        const Text(
-          'More than 100+ specialist doctors are\nready to serve you ',
-          style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.w500, color: mGreyc),
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
-  }
-}
-
-class Pageviewlast extends StatelessWidget {
-  const Pageviewlast({
-    Key? key,
-    required this.mysize,
-  }) : super(key: key);
-
-  final Size mysize;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: mysize.height * 0.5,
-          // color: mBlue,
-          child: Image.asset('lib/assets/Group 36074.png'),
-        ),
-        hsizedbox15,
-        const Text(
-          'Easier with a secure\nsystem',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
-        ),
-        hsizedbox20,
-        const Text(
-          'We are prioritize and safety for\nyou and your dactor ',
-          style: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.w500, color: mGreyc),
-          textAlign: TextAlign.center,
-        ),
-      ],
     );
   }
 }

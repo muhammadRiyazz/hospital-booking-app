@@ -16,6 +16,10 @@ class HealthNewsPart extends StatelessWidget {
       child: Container(
         decoration: const BoxDecoration(color: cmain, borderRadius: radius10),
         height: mysize.height * 0.21,
+        // child: Image.network(
+        //   'https://lottiefiles.com/110260-online-doctor',
+        //   fit: BoxFit.fill,
+        // ),
       ),
     );
   }
