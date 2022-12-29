@@ -19,6 +19,7 @@ class ScreenMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    IndexValueNotifier.value = 0;
     return Scaffold(
       body: SafeArea(
         child: ValueListenableBuilder(

@@ -1,5 +1,6 @@
-import 'package:appoiment_docter/presantation/Adminpages/screen%20main/screen%20main.dart';
-import 'package:appoiment_docter/presantation/User%20pages/screen%20threepart/screen_scnd_splash.dart';
+import 'package:appoiment_docter/presantation/intro%20and%20log%20in%20page/screen%20intro/screen_scnd_splash.dart';
+import 'package:appoiment_docter/presantation/intro%20and%20log%20in%20page/screen%20splash/screen_splash.dart';
+import 'package:appoiment_docter/presantation/intro%20and%20log%20in%20page/widgets/snckbar.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -16,8 +17,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      // scaffoldMessengerKey: Errormsg.msgkey,
       debugShowCheckedModeBanner: false,
-      home: ScreenScndSplash(),
+      home: ScreenSplash(),
     );
   }
 }

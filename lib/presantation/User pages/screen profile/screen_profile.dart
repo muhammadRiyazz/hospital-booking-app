@@ -1,7 +1,7 @@
 import 'package:appoiment_docter/core/colors/colors.dart';
 import 'package:appoiment_docter/core/constands.dart';
 import 'package:appoiment_docter/presantation/Adminpages/screen%20main/widgets/navogationbar.dart';
-import 'package:appoiment_docter/presantation/User%20pages/screen%20firstlog/screen_firstlog.dart';
+import 'package:appoiment_docter/presantation/intro%20and%20log%20in%20page/screen%20firstlog/screen_firstlog.dart';
 import 'package:appoiment_docter/presantation/User%20pages/screen%20main/screen_main.dart';
 import 'package:appoiment_docter/presantation/User%20pages/screen%20userprofile/sceen_user_profile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -109,7 +109,7 @@ class ScreenProfile extends StatelessWidget {
                       },
                     ));
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.settings,
                     size: 35,
                     color: cmain,
@@ -121,7 +121,7 @@ class ScreenProfile extends StatelessWidget {
                     await FirebaseAuth.instance.signOut();
                     Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
                       builder: (context) {
-                        return AuthScreen();
+                        return const AuthScreen();
                       },
                     ), (route) => false);
                   },
