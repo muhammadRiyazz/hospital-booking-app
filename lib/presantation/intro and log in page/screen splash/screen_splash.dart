@@ -2,11 +2,9 @@ import 'package:appoiment_docter/core/colors/colors.dart';
 import 'package:appoiment_docter/presantation/intro%20and%20log%20in%20page/screen%20firstlog/screen_firstlog.dart';
 import 'package:appoiment_docter/presantation/intro%20and%20log%20in%20page/screen%20intro/screen_scnd_splash.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final kayname = 'loginkey';
+const kayname = 'loginkey';
 
 class ScreenSplash extends StatelessWidget {
   const ScreenSplash({super.key});
@@ -43,10 +41,10 @@ class ScreenSplash extends StatelessWidget {
     } else {
       Navigator.pushReplacement(context, MaterialPageRoute(
         builder: (context) {
-          return AuthScreen();
+          return const AuthScreen();
         },
       ));
     }
-    ;
+    
   }
 }

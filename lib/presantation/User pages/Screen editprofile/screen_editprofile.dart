@@ -62,50 +62,45 @@ class ScreenEditprofile extends StatelessWidget {
               ),
               EditDeteails(firsttext: 'Name', secondtext: 'Muhammad Riyaz'),
               EditDeteails(firsttext: 'Age', secondtext: '22'),
-              ListTile(
-                title: Text(
-                  'Gender',
-                  style: TextStyle(fontSize: 15, color: mGrey),
-                ),
-                subtitle: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  child: DropdownButtonFormField2(
-                    buttonHeight: 40,
-                    buttonPadding: const EdgeInsets.only(left: 0, right: 10),
-                    dropdownDecoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-
-                    hint: const Text(
-                      'Select Your Gender',
-                      style: TextStyle(fontSize: 14),
-                    ),
-                    decoration: const InputDecoration(
-                      isDense: true,
-                      contentPadding: EdgeInsets.zero,
-                      // border: OutlineInputBorder(
-                      //   borderRadius: radius5,
-                      // ),
-                    ),
-                    items: genderItems
-                        .map((item) => DropdownMenuItem<String>(
-                              value: item,
-                              child: Text(
-                                item,
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ))
-                        .toList(),
-                    onChanged: (value) {
-                      selectedValue = value.toString();
-                    },
-                    // onSaved: (value) {
-                    //   selectedValue = value.toString();
-                    // },
-                    isExpanded: true,
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                child: DropdownButtonFormField2(
+                  buttonHeight: 40,
+                  buttonPadding: const EdgeInsets.only(left: 0, right: 10),
+                  dropdownDecoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
                   ),
+
+                  hint: const Text(
+                    'Select Your Gender',
+                    style: TextStyle(fontSize: 14),
+                  ),
+                  decoration: const InputDecoration(
+                    isDense: true,
+                    contentPadding: EdgeInsets.zero,
+                    // border: OutlineInputBorder(
+                    //   borderRadius: radius5,
+                    // ),
+                  ),
+                  items: genderItems
+                      .map((item) => DropdownMenuItem<String>(
+                            value: item,
+                            child: Text(
+                              item,
+                              style: const TextStyle(
+                                fontSize: 14,
+                              ),
+                            ),
+                          ))
+                      .toList(),
+                  onChanged: (value) {
+                    selectedValue = value.toString();
+                  },
+                  // onSaved: (value) {
+                  //   selectedValue = value.toString();
+                  // },
+                  isExpanded: true,
                 ),
               ),
               EditDeteails(firsttext: 'Place', secondtext: 'Malappuram'),

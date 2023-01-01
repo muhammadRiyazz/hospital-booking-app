@@ -4,6 +4,8 @@ import 'package:appoiment_docter/presantation/intro%20and%20log%20in%20page/widg
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'presantation/Adminpages/screen main/screen main.dart';
+
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -16,10 +18,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      // scaffoldMessengerKey: Errormsg.msgkey,
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ScreenSplash(),
+      home: ScreenIntro(),
     );
   }
 }

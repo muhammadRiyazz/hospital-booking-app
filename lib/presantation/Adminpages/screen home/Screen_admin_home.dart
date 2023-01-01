@@ -169,7 +169,7 @@ class AdminHome extends StatelessWidget {
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {
-                  return Populardoctor();
+                  return ScreenPopulardoctor();
                 },
               ));
             },
