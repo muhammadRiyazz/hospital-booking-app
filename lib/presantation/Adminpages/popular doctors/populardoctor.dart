@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:appoiment_docter/Domain/functions/read_popular_doctor.dart';
 import 'package:appoiment_docter/Domain/models/pupular_doctor_modal.dart';
 import 'package:appoiment_docter/presantation/Adminpages/screen%20adddoctor/add_doctor.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -96,19 +97,6 @@ class ScreenPopulardoctor extends StatelessWidget {
       ),
     );
   }
-
-  Stream<List<PopularDoctor>> readdata() {
-    return FirebaseFirestore.instance
-        .collection('Popular doctors')
-        .snapshots()
-        .map((snapshot) {
-      return snapshot.docs.map((doc) {
-        return PopularDoctor.fromJson(doc.data());
-      }).toList();
-    });
-
-    // log();
-  }
 }
 
 class Poplrdctrlist extends StatelessWidget {
@@ -159,7 +147,7 @@ class Poplrdctrlist extends StatelessWidget {
 
                             //color: mgreya
                           ),
-                          child: Image.asset('lib/assets/docter 1.png'),
+                          child: Image.network(data[index].image),
                         ),
                       ),
                       Column(
@@ -170,13 +158,13 @@ class Poplrdctrlist extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
+                                const Text(
                                   'Docter',
                                   style: TextStyle(fontSize: 15, color: mGrey),
                                 ),
                                 Text(
-                                  data[index].doctorName,
-                                  style: TextStyle(
+                                  ("Dr.${data[index].doctorName.toUpperCase()} MBBS"),
+                                  style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w500),
                                 ),
@@ -184,49 +172,50 @@ class Poplrdctrlist extends StatelessWidget {
                             ),
                           ),
                           const Spacer(),
-                          Row(
-                            children: [
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) {
-                                      return Adddoctor();
-                                    },
-                                  ));
-                                },
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      color: cmain, borderRadius: radius5),
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 10),
-                                  child: const Text(
-                                    'Edit',
-                                    style: TextStyle(color: mWhite),
-                                  ),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () {},
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      color: cmain, borderRadius: radius5),
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 25, vertical: 10),
-                                  child: const Text(
-                                    'Delete',
-                                    style: TextStyle(color: mWhite),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                          // Row(
+                          //   children: [
+                          //     TextButton(
+                          //       onPressed: () {
+                          //         Navigator.push(context, MaterialPageRoute(
+                          //           builder: (context) {
+                          //             return Adddoctor();
+                          //           },
+                          //         ));
+                          //       },
+                          //       child: Container(
+                          //         decoration: const BoxDecoration(
+                          //             color: cmain, borderRadius: radius5),
+                          //         padding: const EdgeInsets.symmetric(
+                          //             horizontal: 20, vertical: 10),
+                          //         child: const Text(
+                          //           'Edit',
+                          //           style: TextStyle(color: mWhite),
+                          //         ),
+                          //       ),
+                          //     ),
+                          //     TextButton(
+                          //       onPressed: () {},
+                          //       child: Container(
+                          //         decoration: const BoxDecoration(
+                          //             color: cmain, borderRadius: radius5),
+                          //         padding: const EdgeInsets.symmetric(
+                          //             horizontal: 25, vertical: 10),
+                          //         child: const Text(
+                          //           'Delete',
+                          //           style: TextStyle(color: mWhite),
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   ],
+                          // ),
 
                           // Doctername(),
                           // Spacer(),
                           // Date(),
                           // TwoButtons()
                         ],
-                      )
+                      ),
+                      const Spacer()
                     ]),
                   ),
                 ),

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 class PopularDoctor {
   String? id;
   final String doctorName;

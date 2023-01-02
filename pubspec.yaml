@@ -48,6 +48,8 @@ dependencies:
   email_validator: ^2.1.17
   shared_preferences: ^2.0.15
   image_picker: ^0.8.6
+  firebase_storage: ^11.0.9
+  firebase_core: ^2.4.0
   
 
   

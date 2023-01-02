@@ -238,7 +238,9 @@ class Ourpageview extends StatelessWidget {
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return AdoutDocter();
+                    return AdoutDocter(
+                      indexdoctor: index,
+                    );
                   },
                 ));
               },

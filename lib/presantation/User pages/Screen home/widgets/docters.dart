@@ -1,3 +1,8 @@
+import 'dart:developer';
+import 'dart:io';
+
+import 'package:appoiment_docter/Domain/functions/read_popular_doctor.dart';
+import 'package:appoiment_docter/Domain/models/pupular_doctor_modal.dart';
 import 'package:appoiment_docter/core/colors/colors.dart';
 import 'package:appoiment_docter/core/constands.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +20,38 @@ class Docters extends StatelessWidget {
   Widget build(BuildContext context) {
     final mysize = MediaQuery.of(context).size;
 
+    return StreamBuilder(
+        stream: readdata(),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return const Center(
+              child: Text('something went wrong'),
+            );
+          } else if (snapshot.hasData) {
+            final dctrlist = snapshot.data;
+            return Dctrlist(
+              mysize: mysize,
+              dctrlist: dctrlist!,
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        });
+  }
+}
+
+class Dctrlist extends StatelessWidget {
+  const Dctrlist({Key? key, required this.mysize, required this.dctrlist})
+      : super(key: key);
+
+  final Size mysize;
+  final List<PopularDoctor> dctrlist;
+
+  @override
+  Widget build(BuildContext context) {
+    log(dctrlist[1].image);
     return Expanded(
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
@@ -31,7 +68,9 @@ class Docters extends StatelessWidget {
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return const AdoutDocter();
+                      return AdoutDocter(
+                        indexdoctor: index,
+                      );
                     },
                   ));
                 },
@@ -50,20 +89,22 @@ class Docters extends StatelessWidget {
                             decoration: const BoxDecoration(
                                 // color: cmain,
                                 borderRadius: radius10),
-                            child: Image.asset('lib/assets/dctr.png',
-                                fit: BoxFit.contain),
+                            child: Image.network(
+                              dctrlist[index].image,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                         hsizedbox10,
-                        const Text(
-                          'Dr.Jhony MBBS',
-                          style: TextStyle(
+                        Text(
+                          "Dr.${dctrlist[index].doctorName.toUpperCase()} MBBS ",
+                          style: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         hsizedbox2,
-                        const Text(
-                          'Cardiolagist',
-                          style: TextStyle(
+                        Text(
+                          dctrlist[index].category,
+                          style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                               color: mGrey),
@@ -73,7 +114,7 @@ class Docters extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return ScreenDateTime();
+                                return const ScreenDateTime();
                               },
                             ));
                           },
@@ -100,7 +141,7 @@ class Docters extends StatelessWidget {
               width: 15,
             );
           },
-          itemCount: 5),
+          itemCount: dctrlist.length),
     );
   }
 }
