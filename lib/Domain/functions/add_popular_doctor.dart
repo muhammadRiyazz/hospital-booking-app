@@ -4,7 +4,7 @@ import 'package:appoiment_docter/Domain/models/pupular_doctor_modal.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 
-Future createdoctor({
+Future poplrdoctor({
   required TextEditingController aboutcontroller,
   required String selectedValue,
   required TextEditingController doctornamecontroller,
@@ -38,8 +38,7 @@ Future createdoctor({
       category: mypopulardictor.category,
       doctorName: mypopulardictor.doctorName,
       experiance: mypopulardictor.experiance,
-      petientsCount: mypopulardictor.experiance);
+      petientsCount: mypopulardictor.petientsCount);
   log('call set 3');
   await Populardoctorfirebasedoc.set(json);
-  log('call set');
 }

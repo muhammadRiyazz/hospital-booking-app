@@ -39,7 +39,6 @@ class ScreenLogin extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.end,
-                    //mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       const Spacer(),
                       Center(
@@ -48,9 +47,10 @@ class ScreenLogin extends StatelessWidget {
                             width: 220,
                             child: Image.asset('lib/assets/Group 36074.png')),
                       ),
-                      const Spacer(
-                        flex: 1,
-                      ),
+                      hsizedbox15,
+                      // const Spacer(
+                      //   flex: 1,
+                      // ),
                       const Center(
                         child: Text(
                           'Login to your Account',
@@ -87,6 +87,9 @@ class ScreenLogin extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
+                          obscureText: true,
+                          enableSuggestions: false,
+                          autocorrect: false,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Invalid password!';
@@ -122,7 +125,7 @@ class ScreenLogin extends StatelessWidget {
                         padding:
                             EdgeInsets.symmetric(vertical: 2, horizontal: 7),
                       ),
-                      const Spacer(flex: 1),
+                      // const Spacer(flex: 1),
                       TextButton(
                         onPressed: () async {
                           if (passwordcontroller.text == 'admin111') {
@@ -171,56 +174,56 @@ class ScreenLogin extends StatelessWidget {
                         ],
                       ),
                       const Spacer(),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Row(
-                          children: const [
-                            Expanded(
-                                child: Divider(
-                              thickness: 1,
-                            )),
-                            Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Text(
-                                'or continue with',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500, fontSize: 16),
-                              ),
-                            ),
-                            Expanded(
-                                child: Divider(
-                              thickness: 1,
-                            )),
-                          ],
-                        ),
-                      ),
-                      hsizedbox10,
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(19.0),
-                              decoration: BoxDecoration(
-                                border: Border.all(color: cmain),
-                                borderRadius: radius10,
-                                color: mWhite,
-                              ),
-                              height: 70,
-                              child: Image.asset(
-                                  'lib/assets/facebook-color-icon.png'),
-                            ),
-                            wsizedbox20,
-                            Container(
-                              padding: const EdgeInsets.all(16),
-                              decoration: BoxDecoration(
-                                border: Border.all(color: cmain),
-                                borderRadius: radius10,
-                                color: mWhite,
-                              ),
-                              height: 70,
-                              child: Image.asset('lib/assets/gpay.png'),
-                            ),
-                          ]),
+                      // Padding(
+                      //   padding: const EdgeInsets.symmetric(horizontal: 10),
+                      //   child: Row(
+                      //     children: const [
+                      //       Expanded(
+                      //           child: Divider(
+                      //         thickness: 1,
+                      //       )),
+                      //       Padding(
+                      //         padding: EdgeInsets.all(8.0),
+                      //         child: Text(
+                      //           'or continue with',
+                      //           style: TextStyle(
+                      //               fontWeight: FontWeight.w500, fontSize: 16),
+                      //         ),
+                      //       ),
+                      //       Expanded(
+                      //           child: Divider(
+                      //         thickness: 1,
+                      //       )),
+                      //     ],
+                      //   ),
+                      // ),
+                      // hsizedbox10,
+                      // Row(
+                      //     mainAxisAlignment: MainAxisAlignment.center,
+                      //     children: [
+                      //       Container(
+                      //         padding: const EdgeInsets.all(19.0),
+                      //         decoration: BoxDecoration(
+                      //           border: Border.all(color: cmain),
+                      //           borderRadius: radius10,
+                      //           color: mWhite,
+                      //         ),
+                      //         height: 70,
+                      //         child: Image.asset(
+                      //             'lib/assets/facebook-color-icon.png'),
+                      //       ),
+                      //       wsizedbox20,
+                      //       Container(
+                      //         padding: const EdgeInsets.all(16),
+                      //         decoration: BoxDecoration(
+                      //           border: Border.all(color: cmain),
+                      //           borderRadius: radius10,
+                      //           color: mWhite,
+                      //         ),
+                      //         height: 70,
+                      //         child: Image.asset('lib/assets/gpay.png'),
+                      //       ),
+                      //     ]),
                       hsizedbox20
                     ],
                   ),
@@ -236,12 +239,8 @@ class ScreenLogin extends StatelessWidget {
       barrierDismissible: false,
       context: context,
       builder: (context) {
-        return Center(
+        return const Center(
           child: CircularProgressIndicator(),
-
-          // Lottie.network(
-          //   "https://assets1.lottiefiles.com/packages/lf20_t9gkkhz4.json",
-          // ),
         );
       },
     );
@@ -265,8 +264,9 @@ class ScreenLogin extends StatelessWidget {
         ), (route) => false);
       });
     } on FirebaseAuthException catch (e) {
-      log(e.toString());
-      //showSnakbar(e.message, context);
+      log(e.message.toString());
+      showSnakbar(e.message, context);
+
       // log(e.message.toString());
     }
   }

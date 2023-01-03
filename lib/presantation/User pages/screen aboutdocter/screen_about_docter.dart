@@ -8,8 +8,10 @@ import 'package:flutter/material.dart';
 import '../screen patiants info/screen_patiants_info.dart';
 
 class AdoutDocter extends StatelessWidget {
-  const AdoutDocter({super.key, required this.indexdoctor});
+  const AdoutDocter(
+      {super.key, required this.pagekey, required this.indexdoctor});
   final int indexdoctor;
+  final String pagekey;
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +20,21 @@ class AdoutDocter extends StatelessWidget {
       backgroundColor: cmain,
       body: SafeArea(
           child: StreamBuilder(
-        stream: readdata(),
+        stream: pagekey == 'popular doctor' ? readdata() : morereaddata(),
         builder: (context, snapshot) {
-          final data = snapshot.data;
-          return MainColumn(
-              msize: msize, data: data!, indexdoctor: indexdoctor);
+          if (snapshot.hasError) {
+            return const Center(
+              child: Text('something went wrong'),
+            );
+          } else if (snapshot.hasData) {
+            final data = snapshot.data;
+            return MainColumn(
+                msize: msize, data: data, indexdoctor: indexdoctor);
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
         },
       )),
     );
@@ -38,7 +50,7 @@ class MainColumn extends StatelessWidget {
   }) : super(key: key);
 
   final Size msize;
-  final List<PopularDoctor> data;
+  final data;
   final int indexdoctor;
 
   @override
@@ -90,11 +102,12 @@ class MainColumn extends StatelessWidget {
                     children: [
                       Center(
                         child: Text(
-                          data[indexdoctor].doctorName,
-                          style: TextStyle(
+                          'Dr.${data[indexdoctor].doctorName} MBBS',
+                          style: const TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w600),
                         ),
                       ),
+                      hsizedbox5,
                       Center(
                         child: Text(
                           data[indexdoctor].category,

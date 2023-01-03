@@ -51,7 +51,7 @@ class Dctrlist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log(dctrlist[1].image);
+    // log(dctrlist[1].image);
     return Expanded(
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
@@ -70,6 +70,7 @@ class Dctrlist extends StatelessWidget {
                     builder: (context) {
                       return AdoutDocter(
                         indexdoctor: index,
+                        pagekey: 'popular doctor',
                       );
                     },
                   ));
@@ -91,7 +92,6 @@ class Dctrlist extends StatelessWidget {
                                 borderRadius: radius10),
                             child: Image.network(
                               dctrlist[index].image,
-                              fit: BoxFit.cover,
                             ),
                           ),
                         ),

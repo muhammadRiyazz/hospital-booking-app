@@ -79,6 +79,9 @@ class ScreenSignUp extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
+                    obscureText: true,
+                    //  enableSuggestions: false,
+                    // autocorrect: false,
                     controller: passwordcontroller,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -102,6 +105,9 @@ class ScreenSignUp extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
+                    obscureText: true,
+                    // enableSuggestions: false,
+                    // autocorrect: false,
                     controller: conformpasswordcontroller,
                     validator: (value) {
                       //  log(value!);
@@ -170,53 +176,53 @@ class ScreenSignUp extends StatelessWidget {
                   ],
                 ),
                 const Spacer(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    children: const [
-                      Expanded(
-                          child: Divider(
-                        thickness: 1,
-                      )),
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          'or continue with',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 16),
-                        ),
-                      ),
-                      Expanded(
-                          child: Divider(
-                        thickness: 1,
-                      )),
-                    ],
-                  ),
-                ),
-                hsizedbox10,
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: cmain),
-                        borderRadius: radius10),
-                    height: 70,
-                    child: Padding(
-                      padding: const EdgeInsets.all(19.0),
-                      child: Image.asset('lib/assets/facebook-color-icon.png'),
-                    ),
-                  ),
-                  wsizedbox20,
-                  Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(color: cmain),
-                        borderRadius: radius10),
-                    height: 70,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Image.asset('lib/assets/gpay.png'),
-                    ),
-                  ),
-                ]),
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 10),
+                //   child: Row(
+                //     children: const [
+                //       Expanded(
+                //           child: Divider(
+                //         thickness: 1,
+                //       )),
+                //       Padding(
+                //         padding: EdgeInsets.all(8.0),
+                //         child: Text(
+                //           'or continue with',
+                //           style: TextStyle(
+                //               fontWeight: FontWeight.w500, fontSize: 16),
+                //         ),
+                //       ),
+                //       Expanded(
+                //           child: Divider(
+                //         thickness: 1,
+                //       )),
+                //     ],
+                //   ),
+                // ),
+                // hsizedbox10,
+                // Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                //   Container(
+                //     decoration: BoxDecoration(
+                //         border: Border.all(color: cmain),
+                //         borderRadius: radius10),
+                //     height: 70,
+                //     child: Padding(
+                //       padding: const EdgeInsets.all(19.0),
+                //       child: Image.asset('lib/assets/facebook-color-icon.png'),
+                //     ),
+                //   ),
+                //   wsizedbox20,
+                //   Container(
+                //     decoration: BoxDecoration(
+                //         border: Border.all(color: cmain),
+                //         borderRadius: radius10),
+                //     height: 70,
+                //     child: Padding(
+                //       padding: const EdgeInsets.all(16.0),
+                //       child: Image.asset('lib/assets/gpay.png'),
+                //     ),
+                //   ),
+                // ]),
                 hsizedbox20
               ],
             ),
@@ -233,9 +239,6 @@ class ScreenSignUp extends StatelessWidget {
       builder: (context) {
         return const Center(
           child: CircularProgressIndicator(),
-          //  Lottie.network(
-          //   "https://assets1.lottiefiles.com/packages/lf20_t9gkkhz4.json",
-          // ),
         );
       },
     );
@@ -244,10 +247,10 @@ class ScreenSignUp extends StatelessWidget {
           .createUserWithEmailAndPassword(
               email: emailcontroller.text.trim(),
               password: passwordcontroller.text.trim())
-          //     .onError((error, stackTrace) {
-          //   return showSnakbar(error.toString(), context);
-          // })
-          .then((value) {
+          .onError((error, stackTrace) {
+        Navigator.pop(context);
+        return showSnakbar(error.toString(), context);
+      }).then((value) {
         Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
           builder: (context) {
             return ScreenMain();
@@ -256,6 +259,9 @@ class ScreenSignUp extends StatelessWidget {
       });
     } on FirebaseAuthException catch (e) {
       log(e.message.toString());
+
+      showSnakbar(e.message, context);
+      Navigator.pop(context);
     }
   }
 }

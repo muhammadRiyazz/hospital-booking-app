@@ -52,15 +52,15 @@ class Screenforget extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     controller: emailcontroller,
-                    // validator: (value) {
-                    //   if (value == null || value.isEmpty) {
-                    //     return 'You must fill this field';
-                    //   } else if (!value.contains('@')) {
-                    //     return "Enter valid emil Id";
-                    //   } else {
-                    //     return null;
-                    //   }
-                    // },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'You must fill this field';
+                      } else if (!value.contains('@')) {
+                        return "Enter valid emil Id";
+                      } else {
+                        return null;
+                      }
+                    },
                     decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.email_outlined),
                       contentPadding:
@@ -74,11 +74,9 @@ class Screenforget extends StatelessWidget {
                 hsizedbox10,
                 TextButton(
                     onPressed: () async {
-                      await reset();
-
-                      // if (_formkey.currentState!.validate()) {
-
-                      // }
+                      if (_formkey.currentState!.validate()) {
+                        return await reset(context);
+                      }
                     },
                     child: Container(
                       decoration: const BoxDecoration(
@@ -99,8 +97,33 @@ class Screenforget extends StatelessWidget {
     );
   }
 
-  Future reset() async {
-    await FirebaseAuth.instance
-        .sendPasswordResetEmail(email: emailcontroller.text.trim());
+  Future reset(context) async {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) {
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: emailcontroller.text.trim())
+          .then((value) {
+        showSnakbar('Plz check your email', context);
+        Navigator.pop(context);
+      });
+    } on FirebaseAuthException catch (e) {
+      log(e.message.toString());
+      showSnakbar(e.message, context);
+    }
+
+    /////////
+    // await FirebaseAuth.instance
+    //     .sendPasswordResetEmail(email: emailcontroller.text.trim())
+    //     .onError((error, stackTrace) {
+
+    //     });
   }
 }

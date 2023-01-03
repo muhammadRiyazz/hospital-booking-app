@@ -1,4 +1,5 @@
 import 'package:appoiment_docter/core/colors/colors.dart';
+import 'package:appoiment_docter/presantation/Adminpages/screen%20main/screen%20main.dart';
 import 'package:appoiment_docter/presantation/intro%20and%20log%20in%20page/screen%20login/screen_login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +15,20 @@ class AuthScreen extends StatelessWidget {
     return StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ScreenMain();
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (snapshot.hasData) {
+            if (snapshot.data!.email == 'admin1234@gmail.com') {
+              return adminScreenMain();
+            } else {
+              return ScreenMain();
+            }
+          } else if (snapshot.hasError) {
+            return const Center(
+              child: Text('something went wrong'),
+            );
           } else {
             return const ScreenFirst();
           }

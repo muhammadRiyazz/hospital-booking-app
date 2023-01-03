@@ -1,3 +1,7 @@
+import 'dart:developer';
+
+import 'package:appoiment_docter/Domain/functions/read_popular_doctor.dart';
+import 'package:appoiment_docter/Domain/models/pupular_doctor_modal.dart';
 import 'package:appoiment_docter/core/colors/colors.dart';
 import 'package:appoiment_docter/core/constands.dart';
 import 'package:appoiment_docter/presantation/User%20pages/secreen%20appoiments/screen_appoiment.dart';
@@ -7,34 +11,43 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:simple_shadow/simple_shadow.dart';
 
+import '../../Adminpages/screen main/screen main.dart';
 import '../screen aboutdocter/screen_about_docter.dart';
 import '../screen time and date/screen_time_date.dart';
 
-class ScreenSearch extends StatefulWidget {
-  const ScreenSearch({super.key});
+class ScreenSearch extends StatelessWidget {
+  ScreenSearch({super.key});
 
-  @override
-  State<ScreenSearch> createState() => _ScreenSearchState();
-}
-
-class _ScreenSearchState extends State<ScreenSearch> {
-  List<String> catagoreis = [
-    "Cardiolagy",
-    "Dhandhist",
-    "Cardiolagy",
-    "Dhandhist",
-    "Cardiolagy",
-    "Dhandhist",
-    "Cardiolagy",
-    "Dhandhist",
-    "Cardiolagy",
+  final List<String> catetories = [
+    'Gynecologists',
+    'Cardiologists',
+    'Endocrinologists',
+    'Gastroenterologists',
+    'Nephrologists',
+    'Urologists',
+    'Pulmonologists',
+    'Otolaryngologists',
+    'Neurologists',
+    'Psychiatrists',
+    'Oncologists',
+    'Radiologists',
+    'Rheumatologists',
+    'Anesthesiologists',
+    'Ophthalmologist',
+    'Dermatologist',
+    'Pathologist',
+    'Dermatology',
   ];
 
   int current = 0;
 
   PageController mycontroller = PageController();
+
   @override
   Widget build(BuildContext context) {
+    //   log(showcatetories[0]);
+    // log(showcatetories.length.toString());
+
     return Scaffold(
       body: SafeArea(
         child: Column(children: [
@@ -67,7 +80,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   child: TextField(
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(vertical: 0.0),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 0.0),
                       prefixIcon: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
@@ -85,7 +98,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                         ),
                       ),
                       focusColor: mBlack,
-                      border: OutlineInputBorder(borderRadius: radius20),
+                      border: const OutlineInputBorder(borderRadius: radius20),
                       hintText: 'Find Your Docter',
                     ),
                   ),
@@ -93,137 +106,127 @@ class _ScreenSearchState extends State<ScreenSearch> {
               ),
             ],
           ),
-          SizedBox(
-            height: 70,
-            child: ListView.builder(
-              //controller: mycontroller,
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: catagoreis.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: InkWell(
-                        onTap: () {
-                          setState(() {
-                            current = index;
-                            mycontroller.jumpToPage(current);
-                          });
-                        },
-                        child: SimpleShadow(
-                          // opacity: 0.5, // Default: 0.5
-                          // //color: mgreya, // Default: Black
-                          // offset: const Offset(
-                          //   5,
-                          //   5,
-                          // ), // Default: Offset(2, 2)
-                          // sigma: 7,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: radius10,
-                              color: index == current ? cmain : mgreyb,
-                            ),
-                            // height: 20,
-                            width: 140,
-                            height: 40,
+          // SizedBox(
+          //   height: 70,
+          //   child: ListView.builder(
+          //     //controller: mycontroller,
+          //     physics: const BouncingScrollPhysics(),
+          //     scrollDirection: Axis.horizontal,
+          //     itemCount: catetories.length,
+          //     itemBuilder: (context, index) {
+          //       return Column(
+          //         children: [
+          //           Padding(
+          //             padding: const EdgeInsets.all(8.0),
+          //             child: InkWell(
+          //               onTap: () {
+          //                 setState(() {
+          //                   current = index;
+          //                   mycontroller.jumpToPage(current);
+          //                 });
+          //               },
+          //               child: SimpleShadow(
+          //                 child: Container(
+          //                   decoration: BoxDecoration(
+          //                     borderRadius: radius10,
+          //                     color: index == current ? cmain : mgreyb,
+          //                   ),
+          //                   // height: 20,
+          //                   height: 40,
 
-                            child: Center(
-                                child: Text(
-                              catagoreis[index].toUpperCase(),
-                              style: TextStyle(
-                                  fontSize: current == index ? 16 : 15,
-                                  fontWeight: current == index
-                                      ? FontWeight.w500
-                                      : FontWeight.w400,
-                                  color: current == index ? mgreya : mBlack),
-                            )),
-                          ),
-                        ),
-                      ),
+          //                   child: Center(
+          //                       child: Padding(
+          //                     padding: const EdgeInsets.all(8.0),
+          //                     child: Text(
+          //                       catetories[index].toUpperCase(),
+          //                       style: TextStyle(
+          //                           fontSize: current == index ? 16 : 15,
+          //                           fontWeight: current == index
+          //                               ? FontWeight.w500
+          //                               : FontWeight.w400,
+          //                           color: current == index ? mgreya : mBlack),
+          //                     ),
+          //                   )),
+          //                 ),
+          //               ),
+          //             ),
+          //           ),
+          //           Visibility(
+          //             visible: current == index,
+          //             child: Container(
+          //               height: 3,
+          //               width: 30,
+          //               decoration: const BoxDecoration(
+          //                 borderRadius: radius15,
+          //                 color: cmain,
+          //               ),
+          //             ),
+          //           )
+          //         ],
+          //       );
+          //     },
+          //   ),
+          // ),
+          StreamBuilder(
+              stream: morereaddata(),
+              builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  return const Center(
+                    child: Text('something wnt wrong'),
+                  );
+                } else if (snapshot.hasData) {
+                  log("message");
+                  final data = snapshot.data;
+                  log(data!.length.toString());
+
+                  return Expanded(
+                    child: Ourpageview(
+                      data: data,
                     ),
-                    Visibility(
-                      visible: current == index,
-                      child: Container(
-                        height: 3,
-                        width: 30,
-                        decoration: const BoxDecoration(
-                          borderRadius: radius15,
-                          color: cmain,
-                        ),
-                      ),
-                    )
-                  ],
-                );
-              },
-            ),
-          ),
-          Expanded(
-            child: PageView(
-              controller: mycontroller,
-              scrollDirection: Axis.horizontal,
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
 
-              onPageChanged: (value) {
-                setState(() {
-                  current = value;
-                  mycontroller.jumpToPage(current);
-                });
-              },
-              children: pages,
-              // itemBuilder: (context, index) {
-              //   return const Ourpageview();
-              // },
-            ),
-          )
+                //  PageView.builder(
+                //   itemBuilder: (context, index) {
+                //     return StreamBuilder(
+                //         stream: morereaddata(category: catetories[index]),
+                //         builder: (context, snapshot) {
+                // if (snapshot.hasError) {
+                //   const Center(
+                //     child: Text('Something went worng'),
+                //   );
+                // } else if (snapshot.hasData) {
+                // final data = snapshot.data;
+
+                // } else {
+                //   return const Center(
+                //     child: CircularProgressIndicator(),
+                //   );
+                // }
+              }),
         ]),
       ),
     );
   }
 }
 
-List<Widget> pages = [
-  const Ourpageview(),
-  Container(
-    height: 500,
-    width: double.infinity,
-    color: Colors.red,
-  ),
-  const Ourpageview(),
-  Container(
-    height: 500,
-    width: double.infinity,
-    color: Colors.yellow,
-  ),
-  const Ourpageview(),
-  Container(
-    height: 500,
-    width: double.infinity,
-    color: Colors.red,
-  ),
-  const Ourpageview(),
-  Container(
-    height: 500,
-    width: double.infinity,
-    color: Colors.red,
-  ),
-  Container(
-    height: 500,
-    width: double.infinity,
-    color: Colors.red,
-  )
-];
-
 class Ourpageview extends StatelessWidget {
   const Ourpageview({
     Key? key,
+    required this.data,
   }) : super(key: key);
+  final List<OurDoctor> data;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
+        log(data.length.toString());
         return SimpleShadow(
           opacity: 0.6, // Default: 0.5
           color: mgreya, // Default: Black
@@ -239,6 +242,7 @@ class Ourpageview extends StatelessWidget {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
                     return AdoutDocter(
+                      pagekey: 'all doctors',
                       indexdoctor: index,
                     );
                   },
@@ -250,7 +254,7 @@ class Ourpageview extends StatelessWidget {
                   borderRadius: radius15,
                   color: mWhite,
                 ),
-                height: 120,
+                height: 140,
                 child: Row(children: [
                   Expanded(
                     child: Container(
@@ -258,19 +262,23 @@ class Ourpageview extends StatelessWidget {
                         borderRadius: radius10,
                         // color: mgreya,
                       ),
-                      child: Image.asset('lib/assets/docter 1.png'),
+                      child: Image.network(
+                        data[index].image,
+                        //  fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Doctertxt(),
+                    children: [
+                      hsizedbox5,
+                      Doctertxt(data: data, index: index),
                       // Doctername(),
+                      const Spacer(),
 
-                      // Spacer(),
                       // Date(),
                       // TwoButtons()
-                      ClickButton(),
+                      const ClickButton(),
                     ],
                   )
                 ]),
@@ -279,15 +287,16 @@ class Ourpageview extends StatelessWidget {
           ),
         );
       },
-      itemCount: 6,
+      itemCount: data.length,
     );
   }
 }
 
 class Doctertxt extends StatelessWidget {
-  const Doctertxt({
-    Key? key,
-  }) : super(key: key);
+  const Doctertxt({Key? key, required this.data, required this.index})
+      : super(key: key);
+  final List<OurDoctor> data;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -295,14 +304,14 @@ class Doctertxt extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           Text(
-            'Dr.Jhone MBBS',
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+            'Dr. ${data[index].doctorName.toUpperCase()} MBBS',
+            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
           ),
           Text(
-            'Cardiolagist',
-            style: TextStyle(fontSize: 15, color: mGreyc),
+            data[index].category,
+            style: const TextStyle(fontSize: 15, color: mGreyc),
           ),
         ],
       ),

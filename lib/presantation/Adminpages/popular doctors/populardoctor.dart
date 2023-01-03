@@ -74,7 +74,9 @@ class ScreenPopulardoctor extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) {
-                    return Adddoctor();
+                    return Adddoctor(
+                      pagekey: 'populardoctors',
+                    );
                   },
                 ));
               },
@@ -128,7 +130,10 @@ class Poplrdctrlist extends StatelessWidget {
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
-                        return const InfoDocter();
+                        return InfoDocter(
+                          pagekey: 'popular doctor',
+                          index: index,
+                        );
                       },
                     ));
                   },

@@ -11,6 +11,8 @@ import '../screen appoiments/Screen_Admin_appoinment.dart';
 import '../screen home/Screen_admin_home.dart';
 import 'widgets/navogationbar.dart';
 
+final List<String> showcatetories = [];
+
 class adminScreenMain extends StatelessWidget {
   adminScreenMain({super.key});
 
